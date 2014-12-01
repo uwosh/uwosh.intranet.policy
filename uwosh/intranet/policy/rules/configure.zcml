@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone">
+
+     <adapter factory=".organize.OrganizeActionExecutor" />
+
+     <browser:page
+       for="plone.app.contentrules.browser.interfaces.IRuleActionAdding"
+       name="uwosh.intranet.policy.actions.Organize"
+       class=".organize.OrganizeAddForm"
+       permission="cmf.ManagePortal"
+       />
+
+     <browser:page
+       for=".organize.IOrganizeAction"
+       name="edit"
+       class=".organize.OrganizeEditForm"
+       permission="cmf.ManagePortal"
+       />
+
+     <plone:ruleAction
+         name="uwosh.intranet.policy.actions.Organize"
+         title="Move to organized structure"
+         description="Move the triggering item organizational structure"
+         for="*"
+         event="zope.component.interfaces.IObjectEvent"
+         addview="uwosh.intranet.policy.actions.Organize"
+         editview="edit"
+         schema=".organize.IOrganizeAction"
+         factory=".organize.OrganizeAction"
+         />
+</configure>

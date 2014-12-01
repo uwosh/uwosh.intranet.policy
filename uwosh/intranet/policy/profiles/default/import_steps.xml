@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<import-steps>
+    <import-step id="uwosh.intranet.policy.install" version="1"
+        handler="uwosh.intranet.policy.importexport.install"
+        title="Installing step for uwosh.intranet.policy">
+    </import-step>
+</import-steps>

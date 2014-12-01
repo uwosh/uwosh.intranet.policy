@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<contentrules>
+ <rule name="rule-1" title="organizer"
+    description="organize new content into a meaningful structure."
+    enabled="True" event="zope.lifecycleevent.interfaces.IObjectAddedEvent"
+    stop-after="False">
+  <conditions>
+   <condition type="plone.conditions.PortalType">
+    <property name="check_types">
+     <element>Document</element>
+     <element>FormFolder</element>
+     <element>Image</element>
+     <element>FieldsetFolder</element>
+     <element>Topic</element>
+     <element>Link</element>
+     <element>File</element>
+     <element>FormFileField</element>
+     <element>Folder</element>
+     <element>News Item</element>
+     <element>Event</element>
+    </property>
+   </condition>
+  </conditions>
+  <actions>
+   <action type="uwosh.intranet.policy.actions.Organize"/>
+  </actions>
+ </rule>
+ <assignment name="rule-1" bubbles="False" enabled="True" location=""/>
+</contentrules>

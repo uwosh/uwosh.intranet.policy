@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="uwosh.intranet.policy">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <include package="uwosh.intranet.tabs" />
+  <include package="Products.PloneFormGen" />
+   
+  <include package=".rules" />
+  
+  <genericsetup:registerProfile
+      name="default"
+      title="uwosh.intranet.policy"
+      directory="profiles/default"
+      description="Installs the uwosh.intranet.policy package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <!-- -*- extra stuff goes here -*- -->
+  
+</configure>
